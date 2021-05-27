@@ -51,6 +51,37 @@ pushd ~/Documents/syn/
 git pull
 make install
 
+pushd ~/Documents/syn/
+git pull
+make install
+
+python3 -m pip install afdko
+python3 -m pip install fontmake
+
+pushd ~/Documents/source-code-pro/
+git pull
+./build.sh && mv ./target/TTF/* ./target/OTF/* ~/Library/Fonts/
+./buildVFs.sh && mv ./target/VAR/* ~/Library/Fonts/
+
+pushd ~/Documents/source-sans-pro/
+git pull
+./build.sh && mv ./target/TTF/* ./target/OTF/* ~/Library/Fonts/
+./buildVFs.sh && mv ./target/VAR/* ~/Library/Fonts/
+
+pushd ~/Documents/source-serif-pro/
+git pull
+./build.sh && mv ./target/TTF/* ./target/OTF/* ~/Library/Fonts/
+./buildVFs.sh && mv ./target/VAR/* ~/Library/Fonts/
+
+pushd ~/Documents/libertinus/
+git pull
+ALLFONTS=true make
+mv ./*.otf ~/Library/Fonts/
+
+# Commenting because I am not going to use pdflatex, so not super needed.
+# pushd ~/Documents/FontPro/
+# git pull
+
 # Commented b/c requires user input as written
 # pushd ~/Documents/andromeda/
 # opam update
