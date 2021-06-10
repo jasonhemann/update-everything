@@ -51,6 +51,8 @@ pushd ~/Documents/syn/
 git pull
 make install
 
+python3 -m pip install --user -r ~/Documents/neubanner/requirements.txt
+
 # Commented because I install fonts now with homebrew via tap cask-font.
 
 # python3 -m pip install afdko
