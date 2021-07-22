@@ -18,7 +18,8 @@ echo "install with: mas upgrade"
 npm update -g
 # https://gist.github.com/DanHerbert/9520689 -- set up NPM
 echo "did you think to launch gem update "
-gem update
+gem update --system
+gem update 
 echo "and pip ? pip freeze — local | grep -v ‘^\-e’ | cut -d = -f 1 | xargs pip install -U "
 pushd ~/Documents/bypass-paywalls-chrome/ && git pull && popd
 softwareupdate --all --install --force
