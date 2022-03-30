@@ -24,6 +24,8 @@ echo "and pip ? pip freeze — local | grep -v ‘^\-e’ | cut -d = -f 1 | 
 pushd ~/Documents/bypass-paywalls-chrome/ && git pull && popd
 softwareupdate --all --install --force
 
+pushd '/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app/Contents/MacOS/' && ./msupdate --install && popd 
+
 python3 -m pip install --upgrade pip
 python3 -m pip install --user --upgrade git+https://github.com/codespell-project/codespell.git
 
@@ -46,11 +48,17 @@ git pull
 pushd ~/Documents/emojicode/
 docker build -t emojicode-build -f docker/clang .
 docker run --rm emojicode-build
-docker run --rm -v $(pwd)/code:/workspace -it emojicode-build /bin/bash
+docker run --rm -v "$(pwd)/code:/workspace" -it emojicode-build /bin/bash
 
 pushd ~/Documents/syn/
 git pull
 make install
+
+pushd ~/Documents/scryer-prolog/
+git pull
+cargo update
+cargo install --path /Users/jhemann/Documents/scryer-prolog/
+
 
 python3 -m pip install --user -r ~/Documents/neubanner/requirements.txt
 
