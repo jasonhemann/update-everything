@@ -59,6 +59,13 @@ git pull
 cargo update
 cargo install --path /Users/jhemann/Documents/scryer-prolog/
 
+# Currently doesn't correctly install
+# pushd ~/Documents/ciao/
+# ./ciao-boot.sh get devenv
+
+# pushd ~/Documents/eclipse-clp-git/
+# ./configure
+
 
 python3 -m pip install --user -r ~/Documents/neubanner/requirements.txt
 
