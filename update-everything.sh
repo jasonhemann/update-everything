@@ -26,6 +26,14 @@ echo "and pip ? pip freeze — local | grep -v ‘^\-e’ | cut -d = -f 1 | 
 pushd ~/Documents/bypass-paywalls-chrome/ && git pull && popd
 softwareupdate --all --install --force
 
+# Until I can make homebrew install rust w/the rust-update installed.
+rustup update
+
+
+# TeX Live update manager, update itself, update packages.
+tlmgr update --self
+tlmgr update --all
+
 pushd '/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app/Contents/MacOS/' && ./msupdate --install && popd
 
 python3 -m pip install --upgrade pip
