@@ -6,9 +6,18 @@ set -eu -o pipefail
 
 brew update
 brew upgrade
+brew services restart mariadb postgresql emacs
 brew cleanup -s
 # the following command, or restarting terminal, for mactex to work after install
 eval "$(/usr/libexec/path_helper)"
+
+# Figure out how to make this work w/o an error.
+# brew postgresql-upgrade-database
+
+brew link --overwrite docker-compose
+mkdir -p ~/.docker/cli-plugins
+ln -sfn /usr/local/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+
 #now diagnotic
 brew doctor
 brew missing
@@ -29,6 +38,10 @@ softwareupdate --all --install --force
 # Until I can make homebrew install rust w/the rust-update installed.
 rustup update
 
+# racket migrate
+# If updated, we should also migrate new version
+# raco pkg migrate <n-1th version>
+# then store the appropriate version number elsewhere.
 
 # TeX Live update manager, update itself, update packages.
 tlmgr update --self
@@ -67,7 +80,7 @@ make install
 pushd ~/Documents/scryer-prolog/
 git pull
 cargo update
-cargo install --path $HOME/Documents/scryer-prolog/
+cargo install --path "$HOME/Documents/scryer-prolog/"
 
 # Currently doesn't correctly install
 # pushd ~/Documents/ciao/
@@ -77,7 +90,7 @@ cargo install --path $HOME/Documents/scryer-prolog/
 # ./configure
 
 
-python3 -m pip install --user -r $HOME/Documents/neubanner/requirements.txt
+python3 -m pip install --user -r "$HOME/Documents/neubanner/requirements.txt"
 
 tldr --update
 
@@ -85,10 +98,13 @@ tldr --update
 # tlmgr --self
 # tlmgr --all
 
-# Commented because I install fonts now with homebrew via tap cask-font.
+pushd ~/Documents/libertinus/
+git pull
+fontship make
 
 # python3 -m pip install afdko
-# python3 -m pip install fontmake
+
+# Commented because I install these fonts now with homebrew via tap cask-font.
 
 # pushd ~/Documents/source-code-pro/
 # git pull
