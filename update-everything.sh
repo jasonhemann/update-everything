@@ -82,6 +82,10 @@ git pull
 cargo update
 cargo install --path "$HOME/Documents/scryer-prolog/"
 
+pushd ~/Documents/plzoo/
+git pull
+make all
+
 # Currently doesn't correctly install
 # pushd ~/Documents/ciao/
 # ./ciao-boot.sh get devenv
@@ -89,6 +93,27 @@ cargo install --path "$HOME/Documents/scryer-prolog/"
 # pushd ~/Documents/eclipse-clp-git/
 # ./configure
 
+# Commented b/c I cannot update it automatically, b/c I need to
+# automate alfred update
+#
+# pushd ~/Documents/keynote-to-pdf/
+# git pull
+#
+# pushd ~/Documents/custom-iterm-applescripts-for-alfred/
+# git pull
+
+# Commented because not working, check back w/formulog
+# pushd /Users/jhemann/Documents/formulog/
+# git pull
+# mvn package
+
+# LongingForEmacs
+# styleguide
+# bash-it
+# anorock
+# dminor-in-formulog
+# bash-oo-framework
+# brush
 
 python3 -m pip install --user -r "$HOME/Documents/neubanner/requirements.txt"
 
