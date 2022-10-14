@@ -6,7 +6,7 @@ set -eu -o pipefail
 
 brew update
 brew upgrade
-brew services restart mariadb postgresql emacs
+brew services restart mariadb postgresql emacs langtool
 brew cleanup -s
 # the following command, or restarting terminal, for mactex to work after install
 eval "$(/usr/libexec/path_helper)"
@@ -31,9 +31,14 @@ npm update -g
 echo "did you think to launch gem update "
 gem update --system
 gem update
-echo "and pip ? pip freeze — local | grep -v ‘^\-e’ | cut -d = -f 1 | xargs pip install -U "
+echo "and pip3 ?"
+echo "pip3 freeze --local  | grep -v '^\-e' | cut -d = -f 1 |  xargs pip3 install -U"
 pushd ~/Documents/bypass-paywalls-chrome/ && git pull && popd
 softwareupdate --all --install --force
+
+# If xcode updated
+# COMMENTED, REQUIRES MUCH INTERACTION
+# sudo xcodebuild -license
 
 # Until I can make homebrew install rust w/the rust-update installed.
 rustup update
