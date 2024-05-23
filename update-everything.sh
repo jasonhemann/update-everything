@@ -84,12 +84,18 @@ make install
 
 pushd ~/Documents/scryer-prolog/
 git pull
+brew upgrade rust
 cargo update
-cargo install --path "$HOME/Documents/scryer-prolog/"
+cargo install --path "$(pwd)"
 
 pushd ~/Documents/plzoo/
 git pull
 make all
+
+# Commenting b/c it needs a password to update. expect script?
+# pushd ~/Code/idris-on-m1/
+# git pull
+# source ~/Code/idris-on-m1/idris-on-m1.sh
 
 # Currently doesn't correctly install
 # pushd ~/Documents/ciao/
